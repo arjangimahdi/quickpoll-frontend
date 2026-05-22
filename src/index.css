@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-qp-bg font-sans text-qp-text antialiased;
+    }
+}
+
+@layer components {
+    .qp-heading {
+        @apply text-2xl font-semibold tracking-tight text-qp-text;
+    }
+
+    .qp-subheading {
+        @apply text-sm text-qp-muted;
+    }
+
+    .qp-label {
+        @apply mb-1.5 block text-sm font-medium text-qp-text;
+    }
+
+    .qp-input {
+        @apply w-full rounded-qp border border-qp-border bg-qp-surface px-3.5 py-2.5 text-sm text-qp-text placeholder:text-qp-muted transition-colors focus:border-qp-primary focus:outline-none focus:ring-2 focus:ring-qp-primary/30;
+    }
+
+    .qp-input-error {
+        @apply border-qp-danger focus:border-qp-danger focus:ring-qp-danger/30;
+    }
+
+    .qp-hint {
+        @apply mt-1.5 text-xs text-qp-muted;
+    }
+
+    .qp-error-text {
+        @apply mt-1.5 text-xs text-qp-danger;
+    }
+
+    .qp-btn {
+        @apply inline-flex items-center justify-center rounded-qp px-4 py-2.5 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-qp-bg disabled:cursor-not-allowed disabled:opacity-50;
+    }
+
+    .qp-btn-primary {
+        @apply qp-btn bg-qp-primary text-white hover:bg-qp-primary-hover focus:ring-qp-primary;
+    }
+
+    .qp-btn-ghost {
+        @apply qp-btn border border-qp-border bg-transparent text-qp-text hover:border-qp-muted hover:bg-qp-surface;
+    }
+
+    .qp-link {
+        @apply font-medium text-qp-primary transition-colors hover:text-indigo-300;
+    }
+
+    .qp-card {
+        @apply rounded-qp border border-qp-border bg-qp-surface p-6 shadow-qp sm:p-8;
+    }
+}
