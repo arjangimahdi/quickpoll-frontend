@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes } from "react";
+import { forwardRef, type InputHTMLAttributes } from "react";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     label: string;
@@ -6,14 +6,10 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     hint?: string;
 };
 
-export default function Input({
-    label,
-    error,
-    hint,
-    id,
-    className = "",
-    ...props
-}: InputProps) {
+const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+    { label, error, hint, id, className = "", ...props },
+    ref
+) {
     const inputId = id ?? props.name;
 
     return (
@@ -22,6 +18,7 @@ export default function Input({
                 {label}
             </label>
             <input
+                ref={ref}
                 id={inputId}
                 className={`qp-input ${error ? "qp-input-error" : ""} ${className}`.trim()}
                 aria-invalid={error ? true : undefined}
@@ -41,4 +38,6 @@ export default function Input({
             ) : null}
         </div>
     );
-}
+});
+
+export default Input;

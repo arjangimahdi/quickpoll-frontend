@@ -1,3 +1,7 @@
+import { useAuthContext } from "../context/AuthContext";
+
 export default function DashboardPage() {
-    return null;
+    const { user } = useAuthContext();
+
+    return <div>{user?.email}</div>;
 }

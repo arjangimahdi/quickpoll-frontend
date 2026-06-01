@@ -56,4 +56,8 @@
     .qp-card {
         @apply rounded-qp border border-qp-border bg-qp-surface p-6 shadow-qp sm:p-8;
     }
+
+    .qp-skeleton {
+        @apply animate-pulse rounded-qp bg-qp-surface-raised;
+    }
 }

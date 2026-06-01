@@ -1,10 +1,13 @@
-import axios from "axios";
+import axios, { CreateAxiosDefaults } from "axios";
 
-const apiClient = axios.create({
-    baseURL: "http://api.quickpoll.local:5050/api/",
-    headers: {
-        "Content-Type": "application/json",
-    },
-});
-
-export default apiClient;
+export function createBaseClient(overrides?: CreateAxiosDefaults) {
+    return axios.create({
+        baseURL: import.meta.env.VITE_API_URL,
+        timeout: 10_000,
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        },
+        ...overrides,
+    });
+}
